@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{%block body%}
+    <div id="homenav" class="anchor-target"></div>
+    <div id="home">
+        <div class="container-fluid">
+            <p>Logged out!</p>
+
+            <a href="{% url 'login'%}">Click here to login again.</a>
+        </div>
+    </div>
+{%endblock%}

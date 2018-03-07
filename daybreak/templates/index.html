@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{%block body%}
+    <div id="homenav" class="anchor-target"></div>
+    <div id="home">
+        <div class="container-fluid">
+            {% if user.is_authenticated %}
+                <h1 class="d-block text-center mt-4">Welcome {{ user.get_username }}</h1>
+                <br/>
+                <h2 class="text-center">enter twitter links here</h2>
+                <form action="search/" method="get" >
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Example textarea</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="q"></textarea>
+                </div>
+                <input class="d-block mx-auto my-auto" type="submit" value="Search">
+                </form>
+
+            {% else %}
+                <h1 class="d-block text-center mt-4">Please Login</h1>
+            {% endif %}
+        </div>
+    </div>
+{%endblock%}

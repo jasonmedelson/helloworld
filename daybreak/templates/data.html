@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{##}
+{#{%block body%}#}
+{#    <div id="homenav" class="anchor-target"></div>#}
+{#    <div id="home">#}
+{#        <div class="container-fluid">#}
+{#            <h1>DATA</h1>#}
+{#            <p>{{ items }}</p>#}
+{#            <p>{{ names }}</p>#}
+{#            <p>{{ likes }}</p>#}
+{#            <p>{{ retweets }}</p>#}
+{#            <p>{{ dates }}</p>#}
+{#        </div>#}
+{#    </div>#}
+{#{%endblock%}#}
+
+{%block body%}
+    <div id="homenav" class="anchor-target"></div>
+    <div id="home">
+        <div class="container-fluid">
+            <h1>DATA</h1>
+            <table rules="groups" frame="hsides" border="2">
+                <colgroup></colgroup>
+                <colgroup></colgroup>
+                <colgroup></colgroup>
+                <colgroup></colgroup>
+                <colgroup></colgroup>
+                <colgroup></colgroup>
+                <thead>
+                    <tr>
+                        <th>date</th>
+                        <th>name</th>
+                        <th>link</th>
+                        <th>retweets</th>
+                        <th>likes</th>
+                        <th>quote</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for a,b,c,d,e,f in zipped %}
+                    <tr>
+                        <td class="text">{{ a }}</td>
+                        <td class="text">{{ b }}</td>
+                        <td class="text">{{ c }}</td>
+                        <td class="numb">{{ d }}</td>
+                        <td class="numb">{{ e }}</td>
+                        <td class="text">{{ f }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{%endblock%}
