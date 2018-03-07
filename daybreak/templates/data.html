@@ -26,14 +26,20 @@
                 <colgroup></colgroup>
                 <colgroup></colgroup>
                 <colgroup></colgroup>
+                <colgroup></colgroup>
+                <colgroup></colgroup>
+                <colgroup></colgroup>
                 <thead>
                     <tr>
-                        <th>date</th>
-                        <th>name</th>
-                        <th>link</th>
-                        <th>retweets</th>
-                        <th>likes</th>
-                        <th>quote</th>
+                        <th>Post Date</th>
+                        <th>Influencer/Handle</th>
+                        <th>Tweet URL</th>
+                        <th>Subject/Event</th>
+                        <th>Retweets</th>
+                        <th>Likes</th>
+                        <th>Views</th>
+                        <th>Sentiment</th>
+                        <th>Pull Quote</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -42,8 +48,11 @@
                         <td class="text">{{ a }}</td>
                         <td class="text">{{ b }}</td>
                         <td class="text">{{ c }}</td>
+                        <td></td>
                         <td class="numb">{{ d }}</td>
                         <td class="numb">{{ e }}</td>
+                        <td></td>
+                        <td></td>
                         <td class="text">{{ f }}</td>
                     </tr>
                 {% endfor %}
