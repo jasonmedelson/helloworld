@@ -7,13 +7,13 @@
             {% if user.is_authenticated %}
                 <h1 class="d-block text-center mt-4">Welcome {{ user.get_username }}</h1>
                 <br/>
-                <h2 class="text-center">enter twitter links here</h2>
-                <form action="search/" method="get" >
+                <h2 class="text-center">Enter youtube links here</h2>
+                <form action="youtube/" method="get" >
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea1">enter twitter links here</label>
+                    <label for="exampleFormControlTextarea1">Enter youtube links here</label>
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="q"></textarea>
                 </div>
-                <input class="d-block mx-auto my-auto" type="submit" value="Twitter">
+                <input class="d-block mx-auto my-auto" type="submit" value="Youtube">
                 </form>
 
             {% else %}

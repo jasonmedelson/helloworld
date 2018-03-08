@@ -9,6 +9,70 @@ def index(request):
         request,
         './index.html'
     )
+def yt(request):
+    return render(
+        request,
+        './yt.html'
+    )
+
+def youtube(request):
+    if 'q' in request.GET:
+        parse = request.GET['q']
+        sort = parse.split("https")
+        num = len(sort)
+        links = []
+        names = []
+        profiles = []
+        date = []
+        views = []
+        for link in range(1,num):
+            url = "https"
+            try:
+                url+=sort[link]
+                links.append(url)
+                # req = urlreq.urlopen(url)
+                url = url[:len(url)-2]
+                req = requests.get(url, verify=False)
+                soup = BeautifulSoup(req.content)
+                name = soup.find_all("div", {"class": "yt-user-info"})
+                name = name[0].text.strip()
+                names.append(name)
+                view = soup.find_all("div", {"class": "watch-view-count"})
+                view = view[0].text.strip()
+                view = view.split(" ")
+                view = view[0]
+                view = view.replace(",", "")
+                view = int(view)
+                views.append(view)
+                timestamp = soup.find_all("div", {"id": "watch-uploader-info"})
+                timestamp = timestamp[0].text.strip()
+                try:
+                    timestamp = timestamp.split("on ")
+                    timestamp = timestamp[1]
+                except:
+                    timestamp = timestamp
+                date.append(timestamp)
+                account = soup.find_all("div", {"class": "yt-user-info"})
+                account = account[0].find_all("a")
+                account = account[0]['href'].strip()
+                account = "youtube.com" + account
+                profiles.append(account)
+            except:
+                names.append(" ")
+                views.append(0)
+                profiles.append(" ")
+                date.append(" ")
+    else:
+        message = 'You submitted an empty form.'
+        return HttpResponse(message)
+    zipped = zip(date, names, links,  profiles, views)
+    return render(
+        request,
+        'ytdata.html',
+        context={'names': names, "zipped": zipped,
+                 'dates': date, "items": num, "links": links,},
+    )
+
 
 def search(request):
     if 'q' in request.GET:

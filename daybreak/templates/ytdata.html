@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{##}
+{#{%block body%}#}
+{#    <div id="homenav" class="anchor-target"></div>#}
+{#    <div id="home">#}
+{#        <div class="container-fluid">#}
+{#            <h1>DATA</h1>#}
+{#            <p>{{ items }}</p>#}
+{#            <p>{{ names }}</p>#}
+{#            <p>{{ likes }}</p>#}
+{#            <p>{{ retweets }}</p>#}
+{#            <p>{{ dates }}</p>#}
+{#        </div>#}
+{#    </div>#}
+{#{%endblock%}#}
+
+{%block body%}
+    <div id="homenav" class="anchor-target"></div>
+    <div id="home">
+        <div class="container-fluid">
+            <h1>DATA</h1>
+            <table rules="groups" frame="hsides" border="2">
+                <colgroup></colgroup>
+                <colgroup></colgroup>
+                <colgroup></colgroup>
+                <colgroup></colgroup>
+                <colgroup></colgroup>
+                <colgroup></colgroup>
+                <colgroup></colgroup>
+                <colgroup></colgroup>
+                <colgroup></colgroup>
+                <colgroup></colgroup>
+                <colgroup></colgroup>
+                <colgroup></colgroup>
+                <thead>
+                    <tr>
+                        <th>Post Date</th>
+                        <th>Influencer/Handle</th>
+                        <th>Video URL</th>
+                        <th>Channel URL</th>
+                        <th>Subject/Event</th>
+                        <th></th>
+                        <th>Type</th>
+                        <th>Score</th>
+                        <th>Views</th>
+                        <th>Views Date</th>
+                        <th>Sentiment</th>
+                        <th>Pull Quote</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for a,b,c,d,e in zipped %}
+                    <tr>
+                        <td class="text">{{ a }}</td>
+                        <td class="text">{{ b }}</td>
+                        <td class="text">{{ c }}</td>
+                        <td class="numb">{{ d }}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="numb">{{ e }}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{%endblock%}
